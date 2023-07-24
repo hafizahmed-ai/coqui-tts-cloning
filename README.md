@@ -2,7 +2,7 @@
 
 ## Finetuned [coqui-TTS](https://github.com/coqui-ai/TTS):
 
-Voice cloning is the process of converting text input into natural and expressive synthetic speech using a pre-trained Text-to-Speech (TTS) model. In this project, we utilized the coqui-TTS model, which involves two main stages: Text and Audio Preprocessing and Acoustic Model Training. The text data undergoes tokenization and normalization, while the audio data is converted into Mel-frequency cepstral coefficients (MFCCs) or spectrograms. The acoustic model, typically implemented using neural networks like RNNs or transformers, learns the mapping between text representations and acoustic features. Finally, the vocoder synthesizes the acoustic features into high-quality waveforms, generating the desired speech output.
+Voice cloning is the process of converting text input into natural and expressive synthetic speech using a pre-trained Text-to-Speech (TTS) model. In this project, I utilized the coqui-TTS model, which involves two main stages: Text and Audio Preprocessing and Acoustic Model Training. The text data undergoes tokenization and normalization, while the audio data is converted into Mel-frequency cepstral coefficients (MFCCs) or spectrograms. The acoustic model, typically implemented using neural networks like RNNs or transformers, learns the mapping between text representations and acoustic features. Finally, the vocoder synthesizes the acoustic features into high-quality waveforms, generating the desired speech output.
 
 ```mermaid
 graph TD;
@@ -14,16 +14,8 @@ graph TD;
 ## Dataset Preparation:
 
 
-For this project, we used a dataset consisting of 212 data points of Priyanka Chopra's voice notes and their corresponding transcriptions. The dataset was meticulously prepared in the following steps:
+For this project, I used a dataset consisting of 212 data points of Priyanka Chopra's voice notes and their corresponding transcriptions. The dataset was meticulously prepared in the following steps:
 
-* Extracted voice and subtitles from **Priyanka Chopra's** interview using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
-* Filtered the data to remove voices of other speakers from both audio and text data.
-* Cleaned the audio dataset using [Audacity](https://www.audacityteam.org/download/) to enhance its usability.
-* Used this [rnnoise](https://github.com/xiph/rnnoise) to enhance the audio data for better model performance.
-* Transcribed the audio  data to text data using [openAI's whisper model](https://github.com/openai/whisper).
-* Organized the dataset by creating a .csv file containing the audio file paths and corresponding dialogues.
-
-## Audio Dataset can be downloaded from [here](https://drive.google.com/drive/folders/1BNd2w_CTQ8TMkPhgtUR-0zxSAYoliscf?usp=sharing)
 
 #### Dataset Structure:
 ```
@@ -70,24 +62,4 @@ The following results were obtained by finetuning coqui-TTS model.
 | ------------- | -------------                        | -------------           |
 |    0.2887064963579178     |  -0.2587181031703949                     |     0.0015705227851867676              |
 
-
-## Use Trained Model from Commad line:
-
-To use the trained model from the command line, you can follow the example command provided below:
-
-[model.pth](https://drive.google.com/file/d/1FpMMGfcikMl8Takp0z49xCtuvOhiWCqG/view?usp=sharing) and [config.json](https://drive.google.com/file/d/1Fg7lvTIlC6P7UGO3mO8_FuOzPGYiKGIU/view?usp=sharing)
-```
- !tts --text "Hi, I am an excellent Text to Speech cloning AI" \
-      --model_path $model.pth\
-      --config_path $comfig.json \
-      --out_path out.wav
-  import IPython
-  IPython.display.Audio("out.wav")
-```
-
-## Feedback:
-
-If you have any feedback, please reach out to me at: [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/anuj-sahani-34363725b) 
-
-Author: [@anujsahani01](https://github.com/anujsahani01)
 
